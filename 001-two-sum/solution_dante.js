@@ -10,17 +10,26 @@ var twoSum = function(nums, target) {
 
 function twoSumBetter(nums, target) {
 
-    const complementos = new Map();
+    const numsMap = new Map();
+    numsMap.set(nums[0], 0);
+    /*
+    
+    Map {
+        3 : 0
+        2 : 1
 
-    complementos.set(nums[0], 0);
-
+    }
+    
+    */
     for (i=1; i < nums.length; i++) {
 
+        // 6 - 2 = 4 
+        // 6 - 4 = 2
         complemento = target - nums[i];
-
-        if (complementos.has(complemento)) return [complementos.get(complemento), i];
-
-        complementos.set(nums[i], i);
+        
+        if (numsMap.has(complemento)) return [numsMap.get(complemento), i];
+        
+        numsMap.set(nums[i], i);
     }
 }
 
